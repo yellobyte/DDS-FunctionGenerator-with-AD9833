@@ -1,6 +1,6 @@
 # DDS Function Generator with AD9833 module #
 
-Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz to about 30kHz but didn't call such device my own. So in order to have some fun, putting together one by myself was the only option. 
+Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz...30kHz fed into audio device inputs. Unfortunately I didn't call such device my own. So in order to have some fun, putting together one by myself was the only option. 
 
 I ended up with a device able to generate **0.01-6.00Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz**. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch (labelled "Select") and a simple rotary encoder with push switch (labelled "Modify"). 
   
@@ -33,8 +33,10 @@ The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification f
 The LMH6321 acts as output driver/buffer with gain=1 (unity gain) and provides an  "adjustable current limit". Resistor R16 sets this limit to roughly 110mA for thermal protection in case of a short at the output.
   
 Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed sufficient results without them. In case you want to increase the maximum analog frequency and try different Opamps for best results you might need them.
+
+The two resistors R9/R14 (100R||100R) at the driver output were designed into the schematic and soldered on the board but in the end were shorted with wire. The device doesn't really generate high frequency analog signals and is mostly connected to inputs of audio devices with a few 10kOhm input impedance. Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) attached via a 50 Ohm transmission line like coax cable would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. No, the wire keeps it simple...
   
-For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset so that you get an exact symmetrical signal.
+For properly adjusting the analog part an oscilloscope (1MOhm connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset so that you get an exact symmetrical signal.
 Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg).
   
 The device is powered by a standard 230V/2x6V, 12VA transformer.
