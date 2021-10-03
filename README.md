@@ -18,7 +18,7 @@ The two controls allow to change signal [waveform](https://github.com/yellobyte/
 
 The analog part of the circuitry is shielded in tin plate (an old coffee tin proved ideal for this purpose, you will recognize my favorite Italian coffee brand) to keep the output signal as clear as possible and reduce EMI. 
   
-The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching off/on the device.
+The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching the device off/on.
     
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
