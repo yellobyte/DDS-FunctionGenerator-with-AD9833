@@ -37,7 +37,7 @@ Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as show
   
 The device is powered by a standard 230V/2x6V, 12VA transformer.
 
-The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification factor (better to say attenuation factor) of the combination IC6 (Opamp) + IC7 (unity gain buffer). The selected output level (0.01...6.00Vpp) gets translated into a 12-bit value (12-bit range 0...4095) and finally written into the DAC via SPI bus.
+The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification factor (better to say attenuation factor) of the combination IC6 (Opamp) + IC7 (unity gain buffer). To set the output level the selected value (0.01...6.00Vpp resp. its equivalent in Vrms) gets translated into a 12-bit value (range 0...4095) and then written into the DAC via SPI bus.
     
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/EagleFiles/Schematic_V1.1.jpg)
   
