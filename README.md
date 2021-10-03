@@ -2,7 +2,7 @@
 
 Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple function generator to generate sinus signals in the range of 10Hz...30kHz but didn't call one my own. So in order to have some fun, putting together a simple one was the only option.
 
-I ended up with a device able to generate sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch and a simple rotary encoder with push switch. 
+I ended up with a device able to generate 6Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch and a simple rotary encoder with push switch. 
   
 The display is a 16x2 LCD which is controlled via I2C with a cheap China I2C-LCD module.
 
@@ -16,15 +16,23 @@ The two controls allow to change signal [waveform](https://github.com/yellobyte/
   
 ## Some technical infos ##
 
-........
+The analog part of the circuitry is shielded in tin plate (an old coffee tin is ideal for those purposes) to keep the output signal as clear as possible and reduce EMI. 
+  
+Setting for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching of the device.
+    
+
   
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
+## Schematic ##
 
 
-## PCB Files ##
 
-You find the Eagle files (schematic, board and Gerber production files Rev 1.1) in folder [**EagleFiles**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/EagleFiles). I zipped all necessary Gerber files into file "FG with AD9833.zip".  
+![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/EagleFiles/Schematic_V1.1.jpg)
 
-The pictures in folder [**Doc**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Doc) still show board revision 1.0.  Revision 1.1 is almost identical and contains only cosmetic changes.
+## Eagle PCB Files ##
+
+You find the relevant Eagle files (schematic, board and Gerber production files Rev 1.1) in folder [**EagleFiles**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/EagleFiles). I zipped all necessary Gerber files into file "FG with AD9833.zip".  
+
+The pictures in folder [**Doc**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Doc) still show board revision 1.0.   Revision 1.1 is almost identical and contains only cosmetic changes.
    
