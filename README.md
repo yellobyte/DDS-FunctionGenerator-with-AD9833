@@ -24,7 +24,7 @@ The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A
   
 ## Schematic ##
     
-The DDS module with the AD9833 (available on Ebay/Ali/etc.) is a programmable waveform generator with a 0...12.5MHz output frequency rate, which is fairly enough for this device. The AD9833 is written to via SPI interface. The internet provides ready to use libraries for it but I decided to use my own small quick and dirty code.
+The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophisticated programmable waveform generator AD9833 with a 0...12.5MHz output frequency rate. The AD9833 is written to via SPI interface. The internet provides ready to use libraries for it but I decided to use my own small quick and dirty code for I use only two features: setting frequency & waveform.
   
 The output signal of the AD9833 is unipolar and has a constant amplitude  of +38mV...+650mV over the full frequency range. A level shifter is needed to get a bipolar, symmetrical signal. Opamp IC3 serves the purpose. Opamp IC5 is further used to amplify this signal to +/- 3.0V (6Vpp). The combination DAC1/IC6/IC7 is then used to attenuate the signal to the desired output level.
   
