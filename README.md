@@ -37,9 +37,9 @@ Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed suffici
 The two resistors R9/R14 (100R||100R) at the driver output were designed into the schematic and soldered on the board but in the end were shorted with wire. The final device doesn't really generate high frequency analog signals and is mostly connected to inputs of audio devices with a few 10kOhm input impedance. Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) attached via a 50 Ohm transmission line like coax cable would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. It's not a scenario the device was designed for anyway. No, the wire keeps it simple...
   
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset so that you get an exact symmetrical signal.
-Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg).
+Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Info: Cmean is 0V for a completely symmetrical sinus signal, but this is hard to achive.
   
-The device is powered by a standard 230V(prim)/2x6V(sec), 12VA transformer attached to CON1. For programming the Atmega168A I used this Atmel in-circuit [programmer](https://github.com/yellobyte/USB-Atmel-In-Circuit-Programmer), connected to the 10-pin ISP socket.
+The device is powered by a standard 230V(prim)/2x6V(sec), 12VA transformer attached to CON1. For programming the Atmega168A I used this in-circuit [programmer](https://github.com/yellobyte/USB-Atmel-In-Circuit-Programmer), connected to the 10-pin ISP socket.
   
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/EagleFiles/Schematic_V1.1.jpg)
   
