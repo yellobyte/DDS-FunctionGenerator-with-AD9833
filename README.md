@@ -16,9 +16,9 @@ The two controls allow to change signal [waveform](https://github.com/yellobyte/
   
 ## Some technical infos ##
 
-The analog part of the circuitry is shielded in tin plate (an old coffee tin is ideal for those purposes) to keep the output signal as clear as possible and reduce EMI. 
+The analog part of the circuitry is shielded in tin plate (an old coffee tin proved to be ideal for those purposes) to keep the output signal as clear as possible and reduce EMI. 
   
-Setting for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching of the device.
+The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching off the device.
     
 
   
