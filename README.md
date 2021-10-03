@@ -33,7 +33,7 @@ The LMH6321 acts as output driver/buffer with gain=1 (unity gain) and provides a
 Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed sufficient results without them. In case you want to increase the maximum analog frequency and try different Opamps for best results you might need them.
   
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset so that you get an exact symmetrical signal.
-Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown on the [pic](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg).
+Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg).
   
 The device is powered by a standard 230V/2x6V, 12VA transformer.
 
