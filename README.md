@@ -27,9 +27,9 @@ The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A
 ## Schematic ##
 
 
-
+  
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/EagleFiles/Schematic_V1.1.jpg)
-
+  
 ## Eagle PCB Files ##
 
 You find the relevant Eagle files (schematic, board and Gerber production files Rev 1.1) in folder [**EagleFiles**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/EagleFiles). I zipped all necessary Gerber files into file "FG with AD9833.zip".  
