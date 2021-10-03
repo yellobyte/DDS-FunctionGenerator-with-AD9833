@@ -1,8 +1,8 @@
 # DDS Function Generator with AD9833 module #
 
-Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple **Function Generator** to generate sinus signals in the range of 10Hz to about 30kHz but didn't call such device my own. So in order to have some fun, putting together a simple one by myself was the only option.
+Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (!) **Function Generator** to generate sinus signals in the range of 10Hz to about 30kHz but didn't call such device my own. So in order to have some fun, putting together one by myself was the only option. 
 
-I ended up with a device able to generate 6Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch (labelled "Select") and a simple rotary encoder with push switch (labelled "Modify"). 
+I ended up with a device able to generate **6Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz**. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch (labelled "Select") and a simple rotary encoder with push switch (labelled "Modify"). 
   
 The display is a 16x2 LCD which is controlled via I2C with a cheap China I2C-LCD module.
 
@@ -43,7 +43,7 @@ The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification f
   
 ## Eagle PCB Files ##
 
-You find the relevant Eagle files (schematic, board and Gerber production files Rev 1.1) in folder [**EagleFiles**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/EagleFiles). All necessary Gerber files are zipped into file "FG with AD9833.zip".  
+All relevant Eagle files (schematic, board and Gerber production files Rev 1.1) are in folder [**EagleFiles**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/EagleFiles). The necessary Gerber files for production are zipped into file "FG with AD9833.zip".  
 
 The pictures in folder [**Doc**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Doc) still show board revision 1.0.   Revision 1.1 is almost identical and contains only cosmetic changes.
    
