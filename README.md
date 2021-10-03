@@ -1,4 +1,4 @@
-# Function Generator with AD9833 module #
+# DDS Function Generator with AD9833 module #
 
 Doing some work on Audio Amplifiers and Light organs in 2016 I needed a function generator but didn't call one my own. So in order to have some fun, putting together a simple one was the only option.
 
@@ -9,21 +9,21 @@ I put the electronic into an enclosure UM 52011-L from [Bopla](https://www.bopla
 
 ### Front side with 2 controls, 16x2 LCD display & BNC socket: ###
   
-![github](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/raw/main/Doc/FrontDisplay-Vrms.jpg)
+![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/FrontDisplay-Vrms.jpg)
   
-The two controls allow to change signal [waveform](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/raw/main/Doc/SettingWaveform.mp4), output [level](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/raw/main/Doc/SettingLevel+SwitchingBetweenVppVrms.mp4) (for sinus/Triangle) and [frequency](SettingFrequency.mp4) very quickly. Have a look at folder [**Doc**](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/blob/main/Doc) to find more details. 
+The two controls allow to change signal [waveform](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/SettingWaveform.mp4), output [level](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/SettingLevel+SwitchingBetweenVppVrms.mp4) (for sinus/Triangle) and [frequency](SettingFrequency.mp4) very quickly. Have a look at folder [**Doc**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Doc) to find more details. 
   
 ## Some technical infos ##
 
 ........
   
-![github](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/raw/main/Doc/OpenCase.jpg)
+![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
 
 
 ## PCB Files ##
 
-You find the Eagle files (schematic, board and Gerber production files Rev 1.1) in folder [**EagleFiles**](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/blob/main/EagleFiles). I zipped all necessary Gerber files into file "FG with AD9833.zip".  
+You find the Eagle files (schematic, board and Gerber production files Rev 1.1) in folder [**EagleFiles**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/EagleFiles). I zipped all necessary Gerber files into file "FG with AD9833.zip".  
 
-The pictures in folder [**Doc**](https://github.com/yellobyte/DDS-Function-Generator-with-AD9833/blob/main/Doc) still show board revision 1.0.  Revision 1.1 is almost identical and contains only cosmetic changes.
+The pictures in folder [**Doc**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Doc) still show board revision 1.0.  Revision 1.1 is almost identical and contains only cosmetic changes.
    
