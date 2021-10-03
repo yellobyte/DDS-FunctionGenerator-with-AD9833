@@ -1,6 +1,6 @@
 # DDS Function Generator with AD9833 module #
 
-Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple function generator to generate sinus signals in the range of 10Hz...30kHz but didn't call one my own. So in order to have some fun, putting together a simple one was the only option.
+Doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple **Function Generator** to generate sinus signals in the range of 10Hz to about 30kHz but didn't call such device my own. So in order to have some fun, putting together a simple one was the only option.
 
 I ended up with a device able to generate 6Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch and a simple rotary encoder with push switch. 
   
@@ -16,9 +16,9 @@ The two controls allow to change signal [waveform](https://github.com/yellobyte/
   
 ## Some technical infos ##
 
-The analog part of the circuitry is shielded in tin plate (an old coffee tin proved to be ideal for those purposes) to keep the output signal as clear as possible and reduce EMI. 
+The analog part of the circuitry is shielded in tin plate (an old coffee tin proved to be ideal for this purpose, you will recognize my favorite Italian coffee brand) to keep the output signal as clear as possible and reduce EMI. 
   
-The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching off the device.
+The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching off/on the device.
     
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
