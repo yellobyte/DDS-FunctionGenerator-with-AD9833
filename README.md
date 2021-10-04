@@ -1,13 +1,13 @@
 # DDS Function Generator with AD9833 module #
 
-While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz...30kHz fed into various device inputs, all of them having input impedances of a few 1kOhm/10kOhm. Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself was the only option. 
+While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz...30kHz and about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself instead of buying one on the internet was the only option. 
 
-I ended up with a device able to generate **0.01-6.00Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz**. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch (labelled "Select") and a simple rotary encoder with push switch (labelled "Modify"). 
+I ended up with a device able to generate **0.01 to 6.00Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz**. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". 
   
-The display is a 16x2 LCD which is controlled via I2C with a cheap China I2C-LCD module.
+The display is a standard 16x2 LCD being controlled via I2C with a cheap China I2C-LCD module.
 
 I put all components into an enclosure UM 52011-L from [Bopla](https://www.bopla.de/en/enclosure-technology/product/ultramas/enclosure-with-air-vents/um-52011-l.html) which had exactly the size I was looking for.
-
+  
 ### Front side with 2 controls, 16x2 LCD display & BNC socket: ###
   
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/FrontDisplay-Vrms.jpg)
@@ -19,6 +19,10 @@ The two controls allow to change signal [waveform](https://github.com/yellobyte/
 The analog part of the circuitry is shielded in tin plate (an old coffee tin proved ideal for this purpose, you will recognize my favorite Italian coffee brand) to keep the output signal as clear as possible and reduce EMI. 
   
 The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A and therefore stay permanent even after switching the device off/on.
+
+By default, turning the encoder knob will change the output signal immediately. For example, changing the output level from 0.5Vpp up to 6.00Vpp requires a few full turns of the knob and therefore will take a few seconds. Means the output level will rise steadily.
+  
+However, sometimes when testing the automatic gain control (AGC) of audio input stages for example, it requires a signal that rises instantaneously . No problem! Switch off the device and have the encoder knob pressed for two seconds while switching power back on. After that, changing a single setting (waveform, level or frequency) on the display will not affect the output signal. Only after pressing the knob shortly (<0.5s) will the new setting appear at the output.
     
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
@@ -27,6 +31,8 @@ The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A
 The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophisticated programmable waveform generator AD9833 with a 0...12.5MHz output frequency rate. The AD9833 is written to via SPI interface. The internet provides ready to use libraries for it but I decided to use my own small quick and dirty code for I use only two features: setting frequency & waveform.
   
 The output signal of the AD9833 is unipolar and has a constant amplitude  of +38mV...+650mV over the full frequency range. A level shifter is needed to get a bipolar, symmetrical signal. Opamp IC3 serves the purpose. Opamp IC5 is further used to amplify this signal to +/- 3.0V (6Vpp). The combination DAC1/IC6/IC7 is then used to attenuate the signal to the desired output level.
+
+Unfortunately the output of the AD9833 chip on the DDS module is galvanically isolated from the output pin (due to C8/C9) which is not what we need. The quickest remedy is to bridge one of the two capacitors with a short wire, as you can see [**here**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Board_V1.0_top.jpg) on the board or [**here**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AD9833-Modul-with-Modification.jpg) in the schematic.
   
 The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification factor (better to say attenuation factor) of the combination IC6 (Opamp) + IC7 (unity gain buffer). To set the output level the selected value (0.01...6.00Vpp resp. its equivalent in Vrms) gets translated into a 12-bit value (range 0...4095) and then written into the DAC via SPI bus.
   
