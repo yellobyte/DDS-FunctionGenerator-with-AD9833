@@ -32,7 +32,7 @@ The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophis
   
 The output signal of the AD9833 is unipolar and has a constant amplitude  of +38mV...+650mV over the full frequency range. A level shifter is needed to get a bipolar, symmetrical signal. Opamp IC3 serves the purpose. Opamp IC5 is further used to amplify this signal to +/- 3.0V (6Vpp). The combination DAC1/IC6/IC7 is then used to attenuate the signal to the desired output level.
 
-Unfortunately the output of the AD9833 chip on the DDS module is galvanically isolated from the output pin (due to C8/C9) which is not what we need. The quickest remedy is to bridge one of the two capacitors with a short wire, as you can see on the [**board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Board_V1.0_top.jpg) or in the modules [**schematic**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AD9833-Modul-with-Modification.jpg).
+Unfortunately the output of the AD9833 chip on the DDS module shipped from Asia was galvanically isolated from the output pin (due to C8/C9). The quickest remedy was to bridge one of the two capacitors with a short wire, as you can see on the [**board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Board_V1.0_top.jpg) or in the modules [**schematic**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AD9833-Modul-with-Modification.jpg). Apart from that the module was perfect for the task.
   
 The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification factor (better to say attenuation factor) of the combination IC6 (Opamp) + IC7 (unity gain buffer). To set the output level the selected value (0.01...6.00Vpp resp. its equivalent in Vrms) gets translated into a 12-bit value (range 0...4095) and then written into the DAC via SPI bus.
   
@@ -44,8 +44,9 @@ The two resistors R9/R14 (100R||100R) at the driver output were designed into th
 
 The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small I2C-LCD board that is mounted piggyback on the 16x2 LCD front display.
   
-For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset so that you get an exact symmetrical signal.
-Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Info: Cmean is 0V for a completely symmetrical sinus signal, but this is hard to achive.
+For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
+  
+Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Hint: If your osci can display it, have an eye on Cmean. Try to get it to +/-0V as close as possible for a nice symmetrical output signal.
   
 The device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. 
   
