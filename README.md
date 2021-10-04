@@ -48,7 +48,7 @@ The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to
   
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
-Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Hint: If your osci can display it, have an eye on Cmean. Try to get it to +/-0V as close as possible for a nice symmetrical output signal.
+Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Hint: If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal.
   
 The device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. 
   
