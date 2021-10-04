@@ -245,7 +245,7 @@ int8_t EXTRotaryImpulseCheck(void)
 //
 // functions handling the DAC AD5452 for setting output voltage level when SINUS or TRIANGLE
 // (the DAC R-2R ladder is used to set the amplification ratio of OpAmp IC6, the output level range
-// is +/- 3V (6Vpp) at maximum, adjusted with R11 at LSP2)
+// is +/- 3V (6Vpp) at maximum, adjusted with R11 at BNC output)
 //
 void EXTDacInit(void)
 {
@@ -264,11 +264,6 @@ void EXTDacSetLevel(uint16_t outputLevel, uint8_t outputWaveform, uint8_t output
   else {
     // conversion Vrms to Vpp required (adding 0.5 for minimizing conversion error)
     temp1 = (uint16_t)(((double)outputLevel * 2 * (double)((outputWaveform == SINUS) ? SQRT2 : SQRT3)) + 0.5);
-    // TEST TEST
-    if (temp1 > 600) EXTBuzzerRing(1000);
-    if (temp1 > 601) {delay(200); EXTBuzzerRing(1000);}
-    if (temp1 > 602) {delay(200); EXTBuzzerRing(1000);}
-    //
   }
   // final check 
   temp1 = (OUTPUT_LEVEL_VPP_MAX < temp1) ? OUTPUT_LEVEL_VPP_MAX : temp1;
