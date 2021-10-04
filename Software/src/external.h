@@ -12,8 +12,8 @@
 //
 // definitions
 //
-#define RELAIS_OFF	0
-#define RELAIS_ON	  1
+#define RELAIS_OFF  0
+#define RELAIS_ON   1
 #define V_RMS 0           // root mean square
 #define V_P2P 1           // peak to peak
 
