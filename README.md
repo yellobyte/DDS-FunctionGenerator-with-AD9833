@@ -35,11 +35,13 @@ The LMH6321 acts as output driver/buffer with gain=1 (unity gain) and provides a
 Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed sufficient results without them. In case you want to increase the maximum analog frequency and try different Opamps for best results you might need them.
 
 The two resistors R9/R14 (100R||100R) at the driver output were designed into the schematic and soldered on the board but in the end were shorted with wire. The final device doesn't really generate high frequency analog signals and is mostly connected to inputs of audio devices with a few 10kOhm input impedance. Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) attached via a 50 Ohm transmission line like coax cable would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. It's not a scenario the device was designed for anyway. No, the wire keeps it simple...
+
+The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small I2C-LCD board that is mounted piggyback on the 16x2 LCD front display.
   
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset so that you get an exact symmetrical signal.
 Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Info: Cmean is 0V for a completely symmetrical sinus signal, but this is hard to achive.
   
-The device is powered by a standard 230V(prim)/2x6V(sec), 12VA transformer attached to CON1. 
+The device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. 
   
 For programming the Atmega168A I used this in-circuit [programmer](https://github.com/yellobyte/USB-Atmel-In-Circuit-Programmer), connected to the 10-pin ISP socket.
   
