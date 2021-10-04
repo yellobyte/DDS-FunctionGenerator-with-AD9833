@@ -43,7 +43,7 @@ Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as show
   
 The device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. 
   
-For programming the Atmega168A I used this in-circuit [programmer](https://github.com/yellobyte/USB-Atmel-In-Circuit-Programmer), connected to the 10-pin ISP socket.
+The firmware for the device was done with VSCode/PlatformIO and is located in folder [**Software**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Software) together with all needed fuse settings. For programming the Atmega168A I used this in-circuit [**programmer**](https://github.com/yellobyte/USB-Atmel-In-Circuit-Programmer), connected to the 10-pin ISP socket.
   
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/EagleFiles/Schematic_V1.1.jpg)
   
