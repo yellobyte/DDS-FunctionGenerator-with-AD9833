@@ -28,9 +28,9 @@
 //#define USE_SERIAL        // uncomment for using serial output
 
 // some configurable definitions
-#define MAX_IDLE_TIME	30		  // 30 sec
-#define MAX_FREQ		  500000	// 500kHz for sinus/triangle
-#define MAX_FREQ_TTL	5000000 // 5.0MHz for TTL
+#define MAX_IDLE_TIME 30      // 30 sec
+#define MAX_FREQ      500000  // 500kHz for sinus/triangle
+#define MAX_FREQ_TTL  5000000 // 5.0MHz for TTL
 
 #define OUTPUT_WAVEFORM_DEFAULT   SINUS
 #define OUTPUT_LEVEL_MODE_DEFAULT V_P2P   // Vpp
@@ -40,16 +40,16 @@
 #define V_STEPSIZE_SMALL 1    // useful values are only 1,2 or 5
 
 // fix definitions - don't change
-#define I_NORMAL		  0		  // immediate activation of new values without pushing the turn-push-button
-#define I_EXPLICIT		1		  // activation of new values requires pushing the turn-push-button
+#define I_NORMAL      0       // immediate activation of new values without pushing the turn-push-button
+#define I_EXPLICIT    1       // activation of new values requires pushing the turn-push-button
 #define V_STEPSIZE_10 10
 
 // state machine states
-#define	M_IDLE			  0
-#define M_WAVEFORM		1
-#define M_LEVEL			  2
-#define M_FREQUENCY1	3
-#define M_FREQUENCY2	4
+#define	M_IDLE        0
+#define M_WAVEFORM    1
+#define M_LEVEL       2
+#define M_FREQUENCY1  3
+#define M_FREQUENCY2  4
 
 //
 // global variables (set to default if required)
@@ -118,7 +118,7 @@ LiquidCrystal_I2C lcd(0x27,16,2); // set the LCD I2C address, 16 cols, 2 rows
 
 // timer 2 overflow interrupt routine
 ISR(TIMER2_OVF_vect){
-  if (timer2++ > 60) {					  // ca. 1 sec over ?
+  if (timer2++ > 60) {            // ca. 1 sec over ?
     timer2 = 0;
     systemIdleTime++;
   }
@@ -249,10 +249,10 @@ void setup() {
   DDSSignal(outputWaveform); 
 
 #ifdef USE_WDT
-  wdt_enable(WDTO_4S);				                  // Enable Watchdog (4 sek.)
+  wdt_enable(WDTO_4S);                          // Enable Watchdog (4 sek.)
   wdt_reset();
 #endif
-  //sei();								                      // enable global interrupts - done in framework
+  //sei();                                      // enable global interrupts - done in framework
 #ifdef USE_SERIAL
   Serial.println(F("Programmstart ok."));  
 #endif
@@ -261,7 +261,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 #ifdef USE_WDT
-  wdt_reset();					// reset watchdog
+  wdt_reset();                                  // reset watchdog
 #endif  
   if (systemState == M_IDLE) {
     // we are idle and only check select switch
