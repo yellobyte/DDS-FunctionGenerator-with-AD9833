@@ -22,7 +22,7 @@ The settings for waveform/level/frequency get stored in EEPROM of the Atmega168A
     
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
-## Schematic ##
+### Schematic ###
     
 The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophisticated programmable waveform generator AD9833 with a 0...12.5MHz output frequency rate. The AD9833 is written to via SPI interface. The internet provides ready to use libraries for it but I decided to use my own small quick and dirty code for I use only two features: setting frequency & waveform.
   
