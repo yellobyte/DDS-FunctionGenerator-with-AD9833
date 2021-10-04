@@ -1,8 +1,13 @@
 # DDS Function Generator with AD9833 module #
 
-While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz...30kHz and about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself instead of buying one on the internet was the only option. 
+While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz...30kHz and about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. 
+  
+Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself instead of buying one on the internet was the only option. I ended up with a device able to generate output signals with the following specifications:
 
-I ended up with a device able to generate **0.01 to 6.00Vpp sinus/triangle signals up to 500kHz and 5V TTL signals up to 5MHz**. Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". 
+ - **Sinus/Triangle waveform, amplitude 0.01 to 6.00 Vpp, frequency 1Hz to 0.5MHz**
+ - **TTL, amplitude 5 Vpp, frequency 1Hz to 5.0 MHz**
+ 
+ Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". 
   
 The display is a standard 16x2 LCD being controlled via I2C with a cheap China I2C-LCD module.
 
