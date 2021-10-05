@@ -47,7 +47,7 @@ Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed suffici
 
 The two 100Ohm resistors R9/R14 in parallel at the driver output were designed into the schematic and soldered on the board but shorted with wire in the end. The device doesn't generate high frequency analog signals and was designed to only be used in an audio environment anyway, means it will mostly be connected to devices with a few 1..10kOhm input impedance. It will probably never see low impedance loads, transmission lines, reflections and other effects of RF hell. BTW: Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. Things would get complicated. 
   
-Wiring the output driver directly to CON2 (connected to BNC output socket) is appropriate under these circumstances and gives the function generator a very low output impedance. 
+Wiring the output driver directly to CON2 (connected to BNC output socket) gives the function generator a very low output impedance and is appropriate under these circumstances. 
 
 The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small [**I2C-LCD board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/I2C-LCD-module.jpg) that is mounted piggyback on the 16x2 LCD front display.
   
