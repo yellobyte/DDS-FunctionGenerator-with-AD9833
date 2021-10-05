@@ -9,7 +9,7 @@ Unfortunately I didn't call a function generator my own. So in order to have som
  
  Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". The display is a standard 16x2 LCD (HD44780) having a small I2C-LCD adapter module (PCF8574 I/O expander) mounted piggyback.
 
-I put all components into an enclosure UM 52011-L from [Bopla](https://www.bopla.de/en/enclosure-technology/product/ultramas/enclosure-with-air-vents/um-52011-l.html) which had exactly the size I was looking for.
+All components were put into an enclosure UM 52011-L from [Bopla](https://www.bopla.de/en/enclosure-technology/product/ultramas/enclosure-with-air-vents/um-52011-l.html) which had exactly the size needed.
   
 ### Front side with 2 controls, 16x2 LCD display & BNC socket: ###
   
