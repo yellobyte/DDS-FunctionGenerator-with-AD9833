@@ -1,15 +1,13 @@
 # DDS Function Generator with AD9833 module #
 
-While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the range of 10Hz...30kHz and about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. 
+While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the frequency range of 10Hz...30kHz and voltage levels of about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. 
   
 Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself instead of buying one on the internet was the only option. I ended up with a device able to generate output signals with the following specifications:
 
  - **Sinus/Triangle waveform, amplitude 0.01 to 6.00 Vpp, frequency 1Hz to 0.5MHz**
  - **TTL, amplitude 5 Vpp, frequency 1Hz to 5.0 MHz**
  
- Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". 
-  
-The display is a standard 16x2 LCD being controlled via I2C with a cheap China I2C-LCD module.
+ Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". The display is a standard 16x2 LCD (HD44780) having a small I2C-LCD adapter module (PCF8574 I/O expander) mounted piggyback.
 
 I put all components into an enclosure UM 52011-L from [Bopla](https://www.bopla.de/en/enclosure-technology/product/ultramas/enclosure-with-air-vents/um-52011-l.html) which had exactly the size I was looking for.
   
@@ -47,9 +45,11 @@ The LMH6321 acts as output driver/buffer with gain=1 (unity gain) and provides a
   
 Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed sufficient results without them. In case you want to increase the maximum analog frequency and try different Opamps for best results you might need them.
 
-The two resistors R9/R14 (100R||100R) at the driver output were designed into the schematic and soldered on the board but in the end were shorted with wire. The final device doesn't really generate high frequency analog signals and is mostly connected to inputs of audio devices with a few 10kOhm input impedance. Matching 50Ohm transmission lines and inputs is not necessary. Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) attached via coax would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. Things would get comlicated. It's really not a scenario the device was designed for anyway. No, the wire keeps it simple by connecting the output driver directly to the BNC output connector and therefore providing the function generator with a very low output impedance. That's all you need for testing in an audio environment.
+The two 100Ohm resistors R9/R14 in parallel at the driver output were designed into the schematic and soldered on the board but shorted with wire in the end. The device doesn't generate high frequency analog signals and was designed to only be used in an audio environment anyway, means it will mostly be connected to devices with a few 1..10kOhm input impedance. It will probably never see low impedance loads, transmission lines, reflections and other effects of RF hell. BTW: Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. Things would get comlicated. 
+  
+Connecting the output driver directly to the BNC output connector is appropriate under these circumstances and gives the function generator a very low output impedance. 
 
-The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small I2C-LCD board that is mounted piggyback on the 16x2 LCD front display.
+The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small [**I2C-LCD board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/I2C-LCD-module.jpg) that is mounted piggyback on the 16x2 LCD front display.
   
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
