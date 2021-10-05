@@ -47,13 +47,13 @@ Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed suffici
 
 The two 100Ohm resistors R9/R14 in parallel at the driver output were designed into the schematic and soldered on the board but shorted with wire in the end. The device doesn't generate high frequency analog signals and was designed to only be used in an audio environment anyway, means it will mostly be connected to devices with a few 1..10kOhm input impedance. It will probably never see low impedance loads, transmission lines, reflections and other effects of RF hell. BTW: Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. Things would get complicated. 
   
-Connecting the output driver directly to the BNC output connector is appropriate under these circumstances and gives the function generator a very low output impedance. 
+Wiring the output driver directly to CON2 (connected to BNC output socket) is appropriate under these circumstances and gives the function generator a very low output impedance. 
 
 The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small [**I2C-LCD board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/I2C-LCD-module.jpg) that is mounted piggyback on the 16x2 LCD front display.
   
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
-Set the output on the LCD display to 1kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). Hint: If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal.
+Set the output on the LCD display to Sinus, 1.000kHz, 6.00Vpp and adjust the signal as shown [here](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). If your osci can display Cmean, have an eye on it. Try to get it with R2 to +/-0V as close as possible for a nice symmetrical output signal.
   
 The device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. 
   
