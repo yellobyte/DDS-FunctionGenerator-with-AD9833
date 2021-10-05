@@ -11,7 +11,7 @@ Unfortunately I didn't call a function generator my own. So in order to have som
 
 All components were put into an enclosure UM 52011-L from [Bopla](https://www.bopla.de/en/enclosure-technology/product/ultramas/enclosure-with-air-vents/um-52011-l.html) which had exactly the size needed.
   
-### Front side with 2 controls, 16x2 LCD display & BNC socket: ###
+### Front side with 2 controls, 16x2 LCD display and BNC output socket: ###
   
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/FrontDisplay-Vrms.jpg)
   
