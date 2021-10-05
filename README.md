@@ -4,7 +4,7 @@ While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a si
   
 Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself instead of buying one on the internet was the only option. I ended up with a device able to generate output signals with the following specifications:
 
- - **Sinus/Triangle waveform, amplitude 0.01 to 6.00 Vpp, frequency 1Hz to 0.5MHz**
+ - **Sinus/Triangle, amplitude 0.01 to 6.00 Vpp, frequency 1Hz to 0.5MHz**
  - **TTL, amplitude 5 Vpp, frequency 1Hz to 5.0 MHz**
  
  Switching waveform, output level and frequency is done with 2 front panel knobs: a pushbutton switch labelled "Select" and a simple rotary encoder with push switch labelled "Modify". The display is a standard 16x2 LCD (HD44780) having a small I2C-LCD adapter module (PCF8574 I/O expander) mounted piggyback.
