@@ -43,7 +43,7 @@ The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification f
   
 The LMH6321 acts as output driver/buffer with gain=1 (unity gain) and provides an  "adjustable current limit". Resistor R16 sets this limit to roughly 110mA for thermal protection in case of a short at the output.
   
-Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed sufficient results without them. In case you want to increase the maximum analog frequency and try different Opamps for best results you might need them.
+Capacitors C20/C22/C38 are not populated because the Opamp NE5534 showed sufficient results without them. In case you want to increase the maximum analog output frequency and try different Opamps for best results you might need them.
 
 The two 100Ohm resistors R9/R14 in parallel at the IC7 driver output were designed into the schematic and soldered on the board but shorted with wire in the end. The device doesn't generate high frequency analog signals and was designed to only be used in an audio environment anyway, means it will mostly be connected to devices with a few 1..10kOhm input impedance. It will probably never see low impedance loads, transmission lines, reflections and other effects of RF hell. BTW: Having those two resistors in parallel and feeding devices with low input impedance (e.g. 50Ohm) would halve the usable signal amplitude (!) and subsequently force you to correct the displayed signal level on LCD, etc. Things would get complicated. 
   
