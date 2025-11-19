@@ -31,15 +31,19 @@ However, sometimes, when testing the automatic gain control (AGC) of audio input
   
 ### Infos to the Schematic Diagram ###
     
-The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophisticated programmable waveform generator AD9833 with a 0...12.5MHz output frequency rate. 
+The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophisticated programmable waveform generator IC [AD9833](https://www.analog.com/en/products/ad9833.html) with 0...12.5MHz output frequency rate. 
   
-Unfortunately the output pin of the AD9833 chip on the DDS module shipped from Asia was galvanically isolated from the modules output pin (due to C8/C9). The quickest remedy was to bridge one of the two capacitors with a short wire, as you can see on the [**board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Board_V1.0_top.jpg) or in the modules [**schematic**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AD9833-Modul-with-Modification.jpg). Apart from that the module was perfect for the task.
+Unfortunately the output pin of the AD9833 chip on the small **DDS module** shipped from Asia was galvanically isolated from the modules output pin (due to C8/C9). The quickest remedy was to bridge one of the two capacitors with a short wire, as you can see on the [**board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Board_V1.0_top.jpg) or below in the modules schematic. Apart from that the module was perfect for the task.
+
+![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AD9833-Modul-with-Modification.jpg)
   
 The AD9833 is written to via SPI interface. The internet provides ready to use libraries for it but I decided to use some small, quick and dirty code for I only use two features: setting frequency & waveform.
   
 The output signal of the AD9833 is unipolar and has a constant amplitude  of +38mV...+650mV over the full frequency range. The combination of Opamps IC3 + IC5 converts it to a bipolar, symmetrical signal with constant amplitude +/- 3.0V (6Vpp). The combination DAC1/IC6/IC7 is then used to attenuate this signal to the desired output level.
 
-The DAC AD5452 contains a 12-bit R-2R-ladder and simply sets the amplification factor (better to say attenuation factor) of the combination IC6 (Opamp) + IC7 (unity gain buffer). To set the output level the selected value (0.01...6.00Vpp resp. its equivalent in Vrms) gets translated into a 12-bit value (range 0...4095) and then written into the DAC via SPI bus.
+The DAC [AD5452](https://www.analog.com/en/products/ad5452.html) contains a 12-bit R-2R-ladder and simply sets the amplification factor (better to say attenuation factor) of the combination IC6 (Opamp) + IC7 (unity gain buffer). To set the output level the selected value (0.01...6.00Vpp resp. its equivalent in Vrms) gets translated into a 12-bit value (range 0...4095) and then written into the DAC via SPI bus.
+
+![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Functional_Diagram_DAC.jpg)
   
 The LMH6321 acts as output driver/buffer with gain=1 (unity gain) and provides an  "adjustable current limit". Resistor R16 sets this limit to roughly 110mA for thermal protection in case of a short at the output.
   
@@ -49,15 +53,22 @@ The two 100Ohm resistors R9/R14 in parallel at the IC7 driver output were design
   
 Wiring the IC7 driver output directly to CON2 (connected to BNC output socket) gives the function generator a very low output impedance and is appropriate under these circumstances. 
 
-The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND. The four pins of socket "LCD 16x2" go to the matching pins on the small [**I2C-LCD board**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/I2C-LCD-module.jpg) that is mounted piggyback on the 16x2 LCD front display.
-  
+
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
-Set the values on the LCD display to Sinus, 1.000kHz, 6.00Vpp and adjust the output signal as shown [**here**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg). If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal.
+Set the values on the LCD display to Sinus, 1.000kHz, 6.00Vpp and then adjust the output signal as shown below. If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal without offset.
 
-The logic gate IC8D is a low-power-Schottky Schmitt-Trigger-Inverter (74LS14) and acts as buffer between DDS chip and BNC output socket when a TTL output signal is selected. Its TTL signal is slightly better than the one generated by AD9833. Furthermore, a short at the output will destroy this socketed, easy replacable chip and not the tiny DDS chip (MSOP package), soldered on the DDS module.
+<p align="center"><img src="https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg" height="370"/></p> 
+
+The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND.  
+
+The four pins of socket "LCD 16x2" go to the matching pins on the small **I2C-LCD board** that is mounted piggyback on the 16x2 LCD front display.
   
-The device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. 
+<p align="center"><img src="https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/I2C-LCD-module.jpg" height="220"/></p>  
+
+The logic gate IC8D is a low-power-Schottky Schmitt-Trigger-Inverter [74LS14](https://www.ti.com/product/SN74LS14) which acts as buffer between DDS chip and BNC output socket when a TTL output signal is selected. Firstly, its TTL signal is slightly better than the one generated by the AD9833 and secondly, a permanent short at the output would only destroy this socketed, easy replacable and inexpensive chip and not the tiny DDS chip (AD9833 in a MSOP package) soldered on the DDS module.
+  
+The whole device is powered by a standard 230V(prim)/2x6V(sec)/12VA transformer attached to CON1. Two jellybean voltage regulator ICs (IC2/7805 and IC4/7905) provide the needed positive/negative voltages.
   
 The firmware for the device was done with VSCode/PlatformIO and is located in folder [**Software**](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/blob/main/Software) together with all needed fuse settings. For programming the Atmega168A I used this in-circuit [**Programmer**](https://github.com/yellobyte/USB-Atmel-In-Circuit-Programmer), connected to the 10-pin ISP socket.
   
