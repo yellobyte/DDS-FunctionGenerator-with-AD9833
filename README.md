@@ -1,6 +1,6 @@
 # DDS Function Generator with AD9833 module #
 
-While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not neccessarily absolutely precise) **Function Generator** to generate sinus signals in the frequency range of 10Hz...30kHz and voltage levels of about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. 
+While doing some work on Audio Amplifiers and Light Organs in 2016 I needed a simple (and not necessarily absolutely precise) **Function Generator** to generate sinus signals in the frequency range of 10Hz...30kHz and voltage levels of about 0.7...1Vrms. All devices I needed to test had input impedances in the range of ~2kOhm...20kOhm. 
   
 Unfortunately I didn't call a function generator my own. So in order to have some additional fun, putting together one by myself instead of buying one on the internet was the only option. I ended up with a device able to generate output signals with the following specifications:
 
