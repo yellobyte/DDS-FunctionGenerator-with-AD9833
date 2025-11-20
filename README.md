@@ -29,7 +29,7 @@ However, sometimes, when testing the automatic gain control (AGC) of audio input
     
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/OpenCase.jpg)
   
-### Some detailed info to the Schematic Diagram ###
+### Some circuit details ###
     
 The DDS module (available for only a few dollars on Ebay/Ali/etc.) uses a sophisticated programmable waveform generator IC [AD9833](https://www.analog.com/en/products/ad9833.html) with 0...12.5MHz output frequency rate. 
   
