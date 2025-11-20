@@ -45,15 +45,15 @@ The combination DAC1/IC6/IC7 is then used to attenuate this signal to the desire
 
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/Functional_Diagram_DAC.jpg)
   
-The [LMH6321](https://www.ti.com/product/LMH6321) acts as output driver/buffer with gain=1 (unity gain) and provides an  "adjustable current limit". Resistor R16 sets this limit to roughly 110mA for thermal protection in case of a short at the output.
+The [LMH6321](https://www.ti.com/product/LMH6321) (IC7) acts as output driver/buffer with gain=1 (unity gain) and features an  "adjustable current limit". Resistor R16 sets this limit to roughly 110mA for thermal protection in case of a short at the BNC output socket.
   
-Capacitors C20/C22/C38 are not populated because the Opamp [NE5534](https://www.ti.com/product/NE5534) showed sufficient results without them. In case you want to increase the maximum analog output frequency and try different Opamps for best results you might need them.
+Capacitors C20/C22/C38 are not populated because the Opamp [NE5534](https://www.ti.com/product/NE5534) (IC6) showed sufficient results without them. In case you want to increase the maximum analog output frequency and try different Opamps for best results you might need them.
 
 The two 100 Ohm resistors R9/R14 in parallel at the IC7 driver output were designed into the schematic and soldered on the board but shorted with wire in the end because the device will solely get connected to audio devices with a few 1..10kOhm input impedance and only generates audio resp. low analog frequency signals anyway. Means it will never produce RF signals, see low impedance loads, mismatches, reflections and other effects of RF hell. BTW: Having those two resistors in parallel and feeding devices with very low input impedance, e.g. 50 Ohm, would in this case halve the usable signal amplitude and subsequently force you to correct the displayed signal level on LCD, etc. Things would get complicated. 
   
 Therefore wiring the IC7 driver output directly to CON2 (connected to BNC output socket) gives the function generator a very low output impedance and is appropriate under these circumstances. 
 
-The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND.  
+The rotary encoders two outer pins go to IMPULS-A/IMPULS-B and the middle one to ground GND. It's two switch pins go to IMPULS-SW and GND. The two pins of the separate "Select" switch go to SELECT-SW and GND on the board.  
 
 The four pins of socket "LCD 16x2" go to the matching pins on the small **I2C-LCD board** that is mounted piggyback on the 16x2 LCD front display.
   
@@ -71,7 +71,7 @@ The firmware for the device was done with VSCode/PlatformIO and is located in fo
 
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended/needed. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
-Set the values on the LCD display to Sinus, 1.000kHz, 6.00Vpp and then adjust the output signal as shown below. If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal without offset.
+First set the output signal to Sinus, 1.000kHz and 6.00Vpp using the knobs. Then adjust the analog output signal as shown below. If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal without offset.
 
 <p align="center"><img src="https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg" height="400"/></p> 
 
