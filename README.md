@@ -67,7 +67,7 @@ The firmware for the device was done with VSCode/PlatformIO and is located in fo
   
 ![github](https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/EagleFiles/Schematic_V1.1.jpg)
   
-## Adjusting procedure ##
+### Adjusting procedure ###
 
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended/needed. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
