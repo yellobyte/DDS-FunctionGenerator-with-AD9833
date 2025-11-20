@@ -71,7 +71,7 @@ The firmware for the device was done with VSCode/PlatformIO and is located in fo
 
 For properly adjusting the analog part an oscilloscope connected to output (BNC socket) is recommended/needed. Trimmer R11 sets the maximum amplitude and trimmer R2 adjusts the offset for getting a symmetrical signal.
   
-First set the output signal to Sinus, 1.000kHz and 6.00Vpp using the knobs. Then adjust the analog output signal as shown below. If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal without offset.
+First set the output signal to Sinus, 1.000kHz and 6.00Vpp using the knobs. Then adjust the analog output signal with the two trimmers as shown below. If your osci can display Cmean, have an eye on it. Try to get it to +/-0V as close as possible for a nice symmetrical output signal without offset.
 
 <p align="center"><img src="https://github.com/yellobyte/DDS-FunctionGenerator-with-AD9833/raw/main/Doc/AdjustingOutputLevel.jpg" height="400"/></p> 
 
